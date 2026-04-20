@@ -3,13 +3,14 @@
 {% block content %}
     <article>
         <h1>{{ post.title }}</h1>
-        <p class="post-meta">By {{ post.author }} | {{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
-        <div style="margin: 20px 0;">{{ post.content }}</div>
-        <hr>
-        <a href="{{ url_for('web.edit_post', post_id=post.id) }}" class="btn">Edit</a>
-        <form action="{{ url_for('web.delete_post', post_id=post.id) }}" method="POST" style="display:inline;">
-            <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this post?')">Delete</button>
-        </form>
-        <a href="{{ url_for('web.index') }}" style="margin-left: 10px;">Back to Home</a>
+        <p class="article-meta">By {{ post.author }} on {{ post.created_at.strftime('%B %d, %Y at %H:%M') }}</p>
+        <div class="article-content">{{ post.content }}</div>
+        <div class="article-actions">
+            <a href="{{ url_for('web.edit_post', post_id=post.id) }}" class="btn btn-edit">✏️ Edit</a>
+            <form action="{{ url_for('web.delete_post', post_id=post.id) }}" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">🗑️ Delete</button>
+            </form>
+            <a href="{{ url_for('web.index') }}" class="btn">← Back to Home</a>
+        </div>
     </article>
 {% endblock %}

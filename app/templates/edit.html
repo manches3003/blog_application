@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block title %}Edit Post - Flask Blog{% endblock %}
 {% block content %}
-    <h1>Edit Post</h1>
+    <h1>✏️ Edit Post</h1>
     <form method="POST">
-        <div style="margin-bottom: 15px;">
-            <label for="title" style="display: block; margin-bottom: 5px; font-weight: bold;">Title</label>
-            <input type="text" id="title" name="title" value="{{ post.title }}" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+        <div class="form-group">
+            <label for="title">📌 Title</label>
+            <input type="text" id="title" name="title" value="{{ post.title }}" required>
         </div>
-        <div style="margin-bottom: 15px;">
-            <label for="author" style="display: block; margin-bottom: 5px; font-weight: bold;">Author</label>
-            <input type="text" id="author" name="author" value="{{ post.author }}" style="width: 100%; padding: 8px; box-sizing: border-box;">
+        <div class="form-group">
+            <label for="author">✍️ Author</label>
+            <input type="text" id="author" name="author" value="{{ post.author }}">
         </div>
-        <div style="margin-bottom: 15px;">
-            <label for="content" style="display: block; margin-bottom: 5px; font-weight: bold;">Content</label>
-            <textarea id="content" name="content" rows="10" required style="width: 100%; padding: 8px; box-sizing: border-box;">{{ post.content }}</textarea>
+        <div class="form-group">
+            <label for="content">📝 Content</label>
+            <textarea id="content" name="content" rows="10" required>{{ post.content }}</textarea>
         </div>
-        <button type="submit" class="btn">Update Post</button>
-        <a href="{{ url_for('web.view_post', post_id=post.id) }}" class="btn" style="background: #6c757d; margin-left: 10px;">Cancel</a>
+        <button type="submit" class="btn btn-success">💾 Update Post</button>
+        <a href="{{ url_for('web.view_post', post_id=post.id) }}" class="btn" style="background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);">Cancel</a>
     </form>
 {% endblock %}

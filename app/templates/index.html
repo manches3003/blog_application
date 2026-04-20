@@ -2,14 +2,22 @@
 {% block title %}Flask Blog - Home{% endblock %}
 {% block content %}
     <h1>Blog Posts</h1>
+
     {% for post in posts %}
-        <article style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+        <article class="post">
             <h2><a href="{{ url_for('web.view_post', post_id=post.id) }}">{{ post.title }}</a></h2>
-            <p class="post-meta">By {{ post.author }} on {{ post.created_at.strftime('%Y-%m-%d') }}</p>
-            <p>{{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}</p>
-            <a href="{{ url_for('web.view_post', post_id=post.id) }}">Read more</a>
+            <p class="post-meta">
+                <span>👤 {{ post.author }}</span>
+                <span>📅 {{ post.created_at.strftime('%B %d, %Y') }}</span>
+            </p>
+            <p class="post-content">{{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}</p>
+            <a href="{{ url_for('web.view_post', post_id=post.id) }}" class="btn">Read more →</a>
         </article>
     {% else %}
-        <p>No posts yet. <a href="{{ url_for('web.create_post') }}">Create one!</a></p>
+        <div class="empty-state">
+            <h3>No posts yet</h3>
+            <p>Be the first to create a post!</p>
+            <a href="{{ url_for('web.create_post') }}" class="btn btn-success">Create Post</a>
+        </div>
     {% endfor %}
 {% endblock %}
