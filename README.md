@@ -1,6 +1,6 @@
 # 📝 Flask Blog Application
 
-A full-stack **CRUD blog application** built with Flask and PostgreSQL, containerized with Docker, and deployed automatically via a GitHub Actions CI/CD pipeline. Built as a DevOps learning project to demonstrate real-world software engineering practices.
+A full-stack **CRUD blog application** built with Flask, containerized with Docker, and deployed automatically via a GitHub Actions CI/CD pipeline. Built as a DevOps learning project to demonstrate real-world software engineering practices.
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python) ![Flask](https://img.shields.io/badge/Flask-3.0-black?logo=flask)  ![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker) ![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-orange?logo=githubactions)
 
