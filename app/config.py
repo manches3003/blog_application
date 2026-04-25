@@ -8,11 +8,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DATABASE_URL',
-        'postgresql://postgres:KES92@pk@localhost:5432/flask_blog_dev'
-    )
-
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 class TestingConfig(Config):
     TESTING = True

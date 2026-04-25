@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 27,
+  "agentName": "TOJIISDEAD",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus21.actions.githubusercontent.com/TdK3pfSEClpqCownY0v893d6qGFDslNFfvV5w4161rFw6bUwEz/",
+  "gitHubUrl": "https://github.com/manches3003/blog_application",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}
