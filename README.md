@@ -437,6 +437,6 @@ MIT
 
 ## Author
 
-Developed and deployed by [Your Name]
+Developed and deployed by Kevin
 
 For issues or questions, please open an issue on the repository.
