@@ -1,7 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from dotenv import load_dotenv
 import os
+
+# Load .env from project root
+project_root = os.path.abspath(os.path.dirname(__file__) + '/..')
+load_dotenv(os.path.join(project_root, '.env'))
 
 db = SQLAlchemy()
 migrate = Migrate()
