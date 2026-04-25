@@ -114,7 +114,7 @@ Create a `.env` file in the project root:
 ```env
 FLASK_ENV=development
 SECRET_KEY=dev-secret-key
-DATABASE_URL=postgresql://postgres:KES92@pk@localhost:5432/flask_blog_dev
+DATABASE_URL=postgresql://[Database name]:[Database password]@localhost:5432/flask_blog_dev
 ```
 
 ### 4. Run Locally
@@ -148,18 +148,18 @@ Create a secret to store sensitive data:
 **PowerShell:**
 ```powershell
 kubectl create secret generic flask-blog-secrets `
-  --from-literal=DATABASE_URL="postgresql://postgres:KES92%40pk@postgres:5432/flask_blog_dev" `
+  --from-literal=DATABASE_URL="postgresql://[Database name]:[Database password]@postgres:5432/flask_blog_dev" `
   --from-literal=SECRET_KEY="dev-secret-key-change-in-prod"
 ```
 
 **Linux/Mac:**
 ```bash
 kubectl create secret generic flask-blog-secrets \
-  --from-literal=DATABASE_URL="postgresql://postgres:KES92%40pk@postgres:5432/flask_blog_dev" \
+  --from-literal=DATABASE_URL="postgresql://[Database name]:[Database password]@postgres:5432/flask_blog_dev" \
   --from-literal=SECRET_KEY="dev-secret-key-change-in-prod"
 ```
 
-**Note:** The `%40` is the URL-encoded form of `@` in the password (`KES92@pk`).
+**Note:** The `%40` is the URL-encoded form of `@` in the password (`password`).
 
 ### Step 3: Apply Kubernetes Manifests
 
@@ -369,7 +369,7 @@ kubectl describe pod -l app=flask-blog
    ```bash
    kubectl delete secret flask-blog-secrets
    kubectl create secret generic flask-blog-secrets \
-     --from-literal=DATABASE_URL="postgresql://postgres:KES92%40pk@postgres:5432/flask_blog_dev" \
+     --from-literal=DATABASE_URL="postgresql://[Database name]:[Database password]@postgres:5432/flask_blog_dev" \
      --from-literal=SECRET_KEY="dev-secret-key-change-in-prod"
    ```
 
@@ -437,6 +437,6 @@ MIT
 
 ## Author
 
-Developed and deployed by [Your Name]
+Developed and deployed by Kevin
 
 For issues or questions, please open an issue on the repository.
