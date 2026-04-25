@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "manches3003/blog_application",
+  "pipelineDirectory": "blog_application",
+  "workspaceDirectory": "blog_application\\blog_application",
+  "repositories": {
+    "manches3003/blog_application": {
+      "repositoryPath": "blog_application\\blog_application",
+      "lastRunOn": "04/25/2026 22:58:02 +02:00"
+    }
+  },
+  "lastRunOn": "04/25/2026 23:17:35 +02:00"
+}
