@@ -63,16 +63,21 @@ jobs:
           build-args: |
             BUILDKIT_INLINE_CACHE=0
 
-      - name: Pull new image to minikube
+      - name: Pull image to minikube
         run: |
           echo "Pulling image to minikube..."
           minikube image pull ${{ secrets.DOCKERHUB_USERNAME }}/flask-blog || true
         shell: bash
 
+      - name: Setup Kubernetes (kind)
+        uses: helm/kind-action@v1
+
+      - name: Deploy Postgres
+        run: kubectl apply -f k8s/postgres.yaml  
+          
       - name: Deploy to minikube
         run: |
           echo "Deploying to minikube..."
-          kubectl apply -f k8s/postgres.yaml
           kubectl apply -f k8s/flask-blog-deployment.yaml
           kubectl apply -f k8s/flask-blog-service.yaml
           kubectl apply -f k8s/flask-blog-hpa.yaml 2>/dev/null || true
