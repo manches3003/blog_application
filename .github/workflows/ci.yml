@@ -43,16 +43,22 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: self-hosted
     steps:
-      - name: Clean runner state
+      - name: Clean any leftover git state
         run: |
+          # Remove any .gitmodules references
+          rm -f .gitmodules
+          rm -rf .git/modules
+          rm -rf actions-runner
+          # Clean git config
           git config --global --remove-section submodule 2>/dev/null || true
-          rm -rf .git/modules 2>/dev/null || true
+          git config --global --remove-section http 2>/dev/null || true
         continue-on-error: true
         shell: bash
 
       - uses: actions/checkout@v4
         with:
           clean: true
+          fetch-depth: 1
 
       - name: Deploy to minikube
         run: |
