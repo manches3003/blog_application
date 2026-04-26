@@ -34,6 +34,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: false
+
+      - name: Clean submodule artifacts
+        run: |
+          rm -rf actions-runner/_work/blog_application/blog_application
+          rm -rf actions-runner/_work/_actions
+        continue-on-error: true
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
